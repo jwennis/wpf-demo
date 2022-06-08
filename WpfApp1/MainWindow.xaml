@@ -9,12 +9,26 @@
     
     <Grid>
 
+        <!--
         <Button Content="Add customer"
                 x:Name="btnAddCustomer"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="10"
-                Click="ButtonAddCustomer_Click"></Button>
+                Click="ButtonAddCustomer_Click" />
+        -->
+
+        <Button x:Name="btnAddCustomer"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10"
+                Click="ButtonAddCustomer_Click">
+
+            <Button.Content>
+                Add Customer
+            </Button.Content>
+
+        </Button>
 
     </Grid>
     
