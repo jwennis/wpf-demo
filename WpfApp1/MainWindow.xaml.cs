@@ -27,7 +27,9 @@ namespace WpfApp1
 
         private void ButtonAddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Customer added!");
+            //MessageBox.Show("Customer added!");
+
+            btnAddCustomer.Content = "Customer added!";
         }
     }
 }

@@ -10,6 +10,7 @@
     <Grid>
 
         <Button Content="Add customer"
+                x:Name="btnAddCustomer"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="10"
