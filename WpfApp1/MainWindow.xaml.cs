@@ -25,13 +25,6 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
-        {
-            //int column = (int) customerListGrid.GetValue(Grid.ColumnProperty);
-            //int newColumn = column == 0 ? 2 : 0;
-            //customerListGrid.SetValue(Grid.ColumnProperty, newColumn);
 
-            Grid.SetColumn(customerListGrid, Grid.GetColumn(customerListGrid) == 0 ? 2 : 0);
-        }
     }
 }
