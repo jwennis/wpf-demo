@@ -29,7 +29,7 @@ namespace WpfApp1
         {
             //MessageBox.Show("Customer added!");
 
-            btnAddCustomer.Content = "Customer added!";
+            //btnAddCustomer.Content = "Customer added!";
         }
     }
 }
