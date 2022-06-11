@@ -9,14 +9,12 @@ using WpfApp1.Model;
 
 namespace WpfApp1.ViewModel
 {
-
-
     public class CustomersViewModel : ViewModelBase
     {
-        public ObservableCollection<Customer> Customers { get; } = new();
+        public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
 
-        private Customer? _selectedCustomer;
-        public Customer? SelectedCustomer 
+        private CustomerItemViewModel? _selectedCustomer;
+        public CustomerItemViewModel? SelectedCustomer 
         { 
             get => _selectedCustomer; 
 
@@ -49,7 +47,7 @@ namespace WpfApp1.ViewModel
             {
                 foreach (var customer in customers)
                 {
-                    Customers.Add(customer);
+                    Customers.Add(new CustomerItemViewModel(customer));
                 }
             }
         }
@@ -58,9 +56,10 @@ namespace WpfApp1.ViewModel
         internal void Add()
         {
             var customer = new Customer { FirstName = "New" };
-            Customers.Add(customer);
+            var viewModel = new CustomerItemViewModel(customer);
 
-            SelectedCustomer = customer;
+            Customers.Add(viewModel);
+            SelectedCustomer = viewModel;
         }
 
 
