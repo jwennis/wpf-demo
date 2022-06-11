@@ -34,7 +34,7 @@ namespace WpfApp1.View
             Loaded += CustomersView_Loaded;
         }
 
-        private async void CustomersView_Loaded(object sender, RoutedEventArgs e) 
+        private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
         {
             await _viewModel.LoadAsync();
         }

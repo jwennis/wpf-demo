@@ -12,13 +12,18 @@ namespace WpfApp1.ViewModel
     public class CustomersViewModel
     {
         public ObservableCollection<Customer> Customers { get; } = new();
+        public Customer? SelectedCustomer { get; set; }
 
         private readonly ICustomerDataProvider _customerDataProvider;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
+
         }
+
+
+
 
         public async Task LoadAsync()
         {

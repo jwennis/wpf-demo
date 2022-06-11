@@ -59,11 +59,12 @@
 
             </StackPanel>
 
-            <ListView x:Name="customerListView"
+            <ListView 
                 Grid.Row="1" 
                 Margin="10 0 10 10"
                       ItemsSource="{Binding Path=Customers}"
                       DisplayMemberPath="FirstName"
+                      SelectedItem="{Binding SelectedCustomer,Mode=TwoWay}"
                       >
 
                 <!--
@@ -82,10 +83,11 @@
         <StackPanel Grid.Column="1"
                     Margin="10">
             <Label>First Name:</Label>
-            <TextBox Text="{Binding ElementName=customerListView,Path=SelectedItem.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding SelectedCustomer.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
             <Label>Last Name:</Label>
-            <TextBox />
-            <CheckBox Margin="0 10 0 0">
+            <TextBox Text="{Binding SelectedCustomer.LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox IsChecked="{Binding SelectedCustomer.IsDeveloper,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                Margin="0 10 0 0">
                 Is developer
             </CheckBox>
         </StackPanel>
