@@ -15,8 +15,8 @@ namespace WpfApp1.ViewModel
 
         private CustomerItemViewModel? _selectedCustomer;
 
-        private int _navigationColumn;
-        public int NavigationColumn
+        private NavigationSide _navigationColumn;
+        public NavigationSide NavigationColumn
         {
             get => _navigationColumn;
             private set
@@ -79,7 +79,13 @@ namespace WpfApp1.ViewModel
 
         internal void MoveNavigation()
         {
-            NavigationColumn = NavigationColumn == 0 ? 2 : 0;
+            NavigationColumn = NavigationColumn == NavigationSide.LEFT ? NavigationSide.RIGHT : NavigationSide.LEFT;
+        }
+
+        public enum NavigationSide 
+        { 
+            LEFT,
+            RIGHT
         }
     }
 }
