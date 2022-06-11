@@ -47,5 +47,10 @@ namespace WpfApp1.View
 
             Grid.SetColumn(customerListGrid, Grid.GetColumn(customerListGrid) == 0 ? 2 : 0);
         }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Add();
+        }
     }
 }

@@ -28,7 +28,7 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <Button 
+                <Button Click="ButtonAdd_Click"
                     Margin="10" 
                     Width="75">
 
