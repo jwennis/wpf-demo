@@ -14,12 +14,24 @@ namespace WpfApp1.ViewModel
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
 
         private CustomerItemViewModel? _selectedCustomer;
-        public CustomerItemViewModel? SelectedCustomer 
-        { 
-            get => _selectedCustomer; 
 
-            set 
-            { 
+        private int _navigationColumn;
+        public int NavigationColumn
+        {
+            get => _navigationColumn;
+            private set
+            {
+                _navigationColumn = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public CustomerItemViewModel? SelectedCustomer
+        {
+            get => _selectedCustomer;
+
+            set
+            {
                 _selectedCustomer = value;
                 RaisePropertyChanged();
             }
@@ -63,5 +75,11 @@ namespace WpfApp1.ViewModel
         }
 
 
+
+
+        internal void MoveNavigation()
+        {
+            NavigationColumn = NavigationColumn == 0 ? 2 : 0;
+        }
     }
 }

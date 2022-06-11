@@ -18,7 +18,7 @@
 
         <!-- Customer List -->
 
-        <Grid x:Name="customerListGrid"
+        <Grid Grid.Column="{Binding NavigationColumn}"
             Background="#777777">
 
             <Grid.RowDefinitions>
@@ -66,12 +66,6 @@
                       DisplayMemberPath="FirstName"
                       SelectedItem="{Binding SelectedCustomer,Mode=TwoWay}"
                       >
-
-                <!--
-                <ListViewItem>Julia</ListViewItem>
-                <ListViewItem>Alex</ListViewItem>
-                <ListViewItem>Thomas</ListViewItem>
-                -->
 
             </ListView>
 
