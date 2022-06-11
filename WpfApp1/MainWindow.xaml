@@ -39,7 +39,7 @@
 
 
         <StatusBar Grid.Row="3">
-            
+             
             <StatusBarItem Content="(c) Wired Brain Coffee"
                 FontSize="20"  />
             
