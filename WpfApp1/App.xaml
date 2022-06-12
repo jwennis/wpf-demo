@@ -5,9 +5,7 @@
              StartupUri="MainWindow.xaml">
 
     <Application.Resources>
-        <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="#f05a28" />
-        <SolidColorBrush x:Key="HeaderForegroundBrush" Color="#ffffff" />
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <ResourceDictionary Source="/Resources/Brushes.xaml" />
     </Application.Resources>
     
 </Application>
