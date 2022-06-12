@@ -33,7 +33,7 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <Button Click="ButtonAdd_Click"
+                <Button Command="{Binding AddCommand}"
                     Margin="10" 
                     Width="75">
 
@@ -51,12 +51,15 @@
 
                 <Button Content="Delete" 
                     Width="75" 
-                    Margin="0 10 10 10" />
+                    Margin="0 10 10 10" 
+                    Command="{Binding DeleteCommand}"
+                        />
 
                 <Button 
                     
                     Margin="0 10 10 10" 
-                    Click="ButtonMoveNavigation_Click">
+                    Command="{Binding MoveNavigationCommand}"
+                    >
 
                     <Image Source="/images/move.png" Width="75" Height="18" />
 

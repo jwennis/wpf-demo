@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Command;
 using WpfApp1.Data;
 using WpfApp1.Model;
 
@@ -34,15 +35,23 @@ namespace WpfApp1.ViewModel
             {
                 _selectedCustomer = value;
                 RaisePropertyChanged();
+                DeleteCommand.RaiseCanExecuteChanged();
             }
         }
 
         private readonly ICustomerDataProvider _customerDataProvider;
 
+        public DelegateCommand AddCommand { get; }
+        public DelegateCommand MoveNavigationCommand { get; }
+        public DelegateCommand DeleteCommand { get; }
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
+
+            AddCommand = new DelegateCommand(Add);
+            MoveNavigationCommand = new DelegateCommand(MoveNavigation);
+            DeleteCommand = new DelegateCommand(Delete, CanDelete);
         }
 
 
@@ -65,7 +74,7 @@ namespace WpfApp1.ViewModel
         }
 
 
-        internal void Add()
+        private void Add(object? parameter)
         {
             var customer = new Customer { FirstName = "New" };
             var viewModel = new CustomerItemViewModel(customer);
@@ -77,7 +86,7 @@ namespace WpfApp1.ViewModel
 
 
 
-        internal void MoveNavigation()
+        private void MoveNavigation(object? parameter)
         {
             NavigationColumn = NavigationColumn == NavigationSide.LEFT ? NavigationSide.RIGHT : NavigationSide.LEFT;
         }
@@ -87,5 +96,15 @@ namespace WpfApp1.ViewModel
             LEFT,
             RIGHT
         }
+        private void Delete(object? parameter)
+        {
+            if (SelectedCustomer is not null) 
+            {
+                Customers.Remove(SelectedCustomer);
+                SelectedCustomer = null;
+            }
+        }
+
+        private bool CanDelete(object? parameter) => SelectedCustomer is not null;
     }
 }

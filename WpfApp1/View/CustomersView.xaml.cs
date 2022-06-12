@@ -17,12 +17,10 @@ using WpfApp1.ViewModel;
 
 namespace WpfApp1.View
 {
-    /// <summary>
-    /// Interaction logic for CustomersView.xaml
-    /// </summary>
     public partial class CustomersView : UserControl
     {
         private CustomersViewModel _viewModel;
+
 
         public CustomersView()
         {
@@ -34,26 +32,22 @@ namespace WpfApp1.View
             Loaded += CustomersView_Loaded;
         }
 
+
         private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
         {
             await _viewModel.LoadAsync();
         }
 
-        private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
-        {
-            //int column = (int) customerListGrid.GetValue(Grid.ColumnProperty);
-            //int newColumn = column == 0 ? 2 : 0;
-            //customerListGrid.SetValue(Grid.ColumnProperty, newColumn);
 
-            //Grid.SetColumn(customerListGrid, Grid.GetColumn(customerListGrid) == 0 ? 2 : 0);
+        //private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
+        //{
+        //    _viewModel.MoveNavigation();
+        //}
 
-            _viewModel.MoveNavigation();
 
-        }
-
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
-        {
-            _viewModel.Add();
-        }
+        //private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        //{
+        //    _viewModel.Add();
+        //}
     }
 }
