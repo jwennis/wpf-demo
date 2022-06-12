@@ -8,7 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid 
-            Background="#f05a28">
+                Background="{StaticResource HeaderBackgroundBrush}"
+                >
 
         <StackPanel Orientation="Horizontal"
                 HorizontalAlignment="Center">
@@ -19,7 +20,7 @@
 
             <TextBlock Text="Customers App" 
                     FontSize="30" 
-                    Foreground="White" 
+                    Foreground="{StaticResource HeaderForegroundBrush}" 
                     VerticalAlignment="Center" />
 
             <TextBlock Text="Version 1.0" 

@@ -23,6 +23,7 @@ namespace WpfApp1.Controls
         public HeaderControl()
         {
             InitializeComponent();
+
         }
     }
 }
