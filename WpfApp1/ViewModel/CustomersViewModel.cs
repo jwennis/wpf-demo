@@ -35,9 +35,12 @@ namespace WpfApp1.ViewModel
             {
                 _selectedCustomer = value;
                 RaisePropertyChanged();
+                RaisePropertyChanged(nameof(IsCustomerSelected));
                 DeleteCommand.RaiseCanExecuteChanged();
             }
         }
+
+        public bool IsCustomerSelected => SelectedCustomer is not null;
 
         private readonly ICustomerDataProvider _customerDataProvider;
 
