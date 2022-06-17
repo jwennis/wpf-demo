@@ -10,6 +10,14 @@
     <UserControl.Resources>
         <converter:NavigationSideToGridColumnConverter 
             x:Key="NavigationSideToGridColumnConverter" />
+
+        <DataTemplate x:Key="CustomerDataTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding FirstName}" FontWeight="Bold" />
+                <TextBlock Text="{Binding LastName}" Margin="5 0 0 0" />
+            </StackPanel>
+        </DataTemplate>
+
     </UserControl.Resources>
     
     <Grid>
@@ -70,12 +78,9 @@
             <ListView 
                 Grid.Row="1" 
                 Margin="10 0 10 10"
-                      ItemsSource="{Binding Path=Customers}"
-                      DisplayMemberPath="FirstName"
-                      SelectedItem="{Binding SelectedCustomer,Mode=TwoWay}"
-                      >
-
-            </ListView>
+                ItemsSource="{Binding Path=Customers}"
+                SelectedItem="{Binding SelectedCustomer,Mode=TwoWay}" 
+                ItemTemplate="{StaticResource CustomerDataTemplate}" />
 
         </Grid>
 
