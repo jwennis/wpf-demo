@@ -15,9 +15,11 @@
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:CustomersViewModel}" >
-            <!---x:Key="CustomersViewModelTemplate"-->
             <view:CustomersView />
-        </DataTemplate>        
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ProductsViewModel}" >
+            <view:ProductsView />
+        </DataTemplate>
     </Window.Resources>
 
     <Grid ShowGridLines="True">
