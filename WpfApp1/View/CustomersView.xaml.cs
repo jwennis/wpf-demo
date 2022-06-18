@@ -19,24 +19,24 @@ namespace WpfApp1.View
 {
     public partial class CustomersView : UserControl
     {
-        private CustomersViewModel _viewModel;
+        //private CustomersViewModel _viewModel;
 
 
         public CustomersView()
         {
             InitializeComponent();
 
-            _viewModel = new CustomersViewModel(new CustomerDataProvider());
+            //_viewModel = new CustomersViewModel(new CustomerDataProvider());
 
-            DataContext = _viewModel;
-            Loaded += CustomersView_Loaded;
+            //DataContext = _viewModel;
+            //Loaded += CustomersView_Loaded;
         }
 
 
-        private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
-        {
-            await _viewModel.LoadAsync();
-        }
+        //private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    await _viewModel.LoadAsync();
+        //}
 
 
         //private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
