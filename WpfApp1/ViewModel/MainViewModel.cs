@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Command;
 
 namespace WpfApp1.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly CustomersViewModel _customersViewModel;
-        private readonly ProductsViewModel _productsViewModel;
+        public CustomersViewModel CustomersViewModel { get; }
+        public ProductsViewModel ProductsViewModel { get; }
         private ViewModelBase? _selectedViewModel;
+        public DelegateCommand SelectViewModelCommand { get; }
 
         public ViewModelBase? SelectedViewModel
         {
@@ -24,9 +26,16 @@ namespace WpfApp1.ViewModel
 
         public MainViewModel(CustomersViewModel customersViewModel, ProductsViewModel productsViewModel)
         {
-            _customersViewModel = customersViewModel;
-            _productsViewModel = productsViewModel;
-            SelectedViewModel = _customersViewModel;
+            CustomersViewModel = customersViewModel;
+            ProductsViewModel = productsViewModel;
+            SelectedViewModel = CustomersViewModel;
+            SelectViewModelCommand = new DelegateCommand(SelectViewModel);
+        }
+
+        private async void SelectViewModel(object? parameter)
+        {
+            SelectedViewModel = parameter as ViewModelBase;
+            await LoadAsync();
         }
 
         public async override Task LoadAsync() 
