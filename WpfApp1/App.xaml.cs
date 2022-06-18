@@ -32,13 +32,13 @@ namespace WpfApp1
             services.AddTransient<ProductsViewModel>();
 
             services.AddTransient<ICustomerDataProvider, CustomerDataProvider>();
+            services.AddTransient<IProductDataProvider, ProductDataProvider>();
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            //var mainWindow = new MainWindow(new MainViewModel(new CustomersViewModel(new CustomerDataProvider()), new ProductsViewModel()));
             var mainWindow = _serviceProvider.GetService<MainWindow>();
             mainWindow?.Show();
         }
