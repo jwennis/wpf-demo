@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:controls="clr-namespace:WpfApp1.Controls" 
         xmlns:view="clr-namespace:WpfApp1.View"        
+        xmlns:viewModel="clr-namespace:WpfApp1.ViewModel"
         mc:Ignorable="d"
         
         Title="MainWindow" 
@@ -13,7 +14,8 @@
         FontSize="20">
 
     <Window.Resources>
-        <DataTemplate x:Key="CustomersViewModelTemplate">
+        <DataTemplate DataType="{x:Type viewModel:CustomersViewModel}" >
+            <!---x:Key="CustomersViewModelTemplate"-->
             <view:CustomersView />
         </DataTemplate>        
     </Window.Resources>
@@ -41,7 +43,8 @@
         <ContentControl 
             Grid.Row="2"
             Content="{Binding SelectedViewModel}" 
-            ContentTemplate="{StaticResource CustomersViewModelTemplate}"/>
+            />
+        <!--ContentTemplate="{StaticResource CustomersViewModelTemplate}"-->
 
         <StatusBar Grid.Row="3">
              
