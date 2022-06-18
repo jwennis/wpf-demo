@@ -58,7 +58,7 @@ namespace WpfApp1.ViewModel
         }
 
 
-        public async Task LoadAsync()
+        public async override Task LoadAsync()
         {
             if (Customers.Any())
             {
