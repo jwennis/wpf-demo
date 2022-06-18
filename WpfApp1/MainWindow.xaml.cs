@@ -26,8 +26,6 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            //_viewModel = new MainViewModel(new CustomersViewModel(new CustomerDataProvider()), new ProductsViewModel());
-
             _viewModel = viewModel;
             DataContext = _viewModel;
             Loaded += MainWindow_Loaded;
