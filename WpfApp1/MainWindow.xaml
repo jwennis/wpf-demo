@@ -12,6 +12,12 @@
         Width="800"         
         FontSize="20">
 
+    <Window.Resources>
+        <DataTemplate x:Key="CustomersViewModelTemplate">
+            <view:CustomersView />
+        </DataTemplate>        
+    </Window.Resources>
+
     <Grid ShowGridLines="True">
         
         <Grid.RowDefinitions>
@@ -20,7 +26,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
         
         <Menu FontSize="20">
 
@@ -30,14 +35,13 @@
             </MenuItem>
 
         </Menu>
-
         
         <controls:HeaderControl Grid.Row="1" />
 
-        
-        <view:CustomersView Grid.Row="2"
-                            DataContext="{Binding SelectedViewModel}"/>
-
+        <ContentControl 
+            Grid.Row="2"
+            Content="{Binding SelectedViewModel}" 
+            ContentTemplate="{StaticResource CustomersViewModelTemplate}"/>
 
         <StatusBar Grid.Row="3">
              
