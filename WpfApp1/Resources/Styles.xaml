@@ -13,8 +13,10 @@
             <Setter.Value>
                 <ControlTemplate>
                     <StackPanel>
-                        <AdornedElementPlaceholder />
-                        <TextBlock Foreground="Red" Text="This is not valid" Margin="5 0 0 0"/>
+                        <AdornedElementPlaceholder x:Name="placeholder" />
+                        <TextBlock Foreground="Red" 
+                                   Text="{Binding ElementName=placeholder,Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" 
+                                   Margin="5 0 0 0"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
