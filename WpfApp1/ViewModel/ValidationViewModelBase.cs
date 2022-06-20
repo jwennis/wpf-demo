@@ -26,5 +26,31 @@ namespace WpfApp1.ViewModel
         {
             ErrorsChanged?.Invoke(this, e);
         }
+
+        protected void AddError(string error, string propertyName)
+        {
+            if (!_errorsByPropertyName.ContainsKey(propertyName))
+            {
+                _errorsByPropertyName[propertyName] = new List<string>();
+            }
+
+            if (!_errorsByPropertyName[propertyName].Contains(error))
+            {
+                _errorsByPropertyName[propertyName].Add(error);
+                OnErrorsChanged(new DataErrorsChangedEventArgs(propertyName));
+                RaisePropertyChanged(nameof(HasErrors));
+            }
+        }
+
+        protected void ClearErrors(string propertyName)
+        {
+
+            if (_errorsByPropertyName.ContainsKey(propertyName))
+            {
+                _errorsByPropertyName.Remove(propertyName);
+                OnErrorsChanged(new DataErrorsChangedEventArgs(propertyName));
+                RaisePropertyChanged(nameof(HasErrors));
+            }
+        }
     }
 }
