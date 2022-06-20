@@ -7,7 +7,7 @@ using WpfApp1.Model;
 
 namespace WpfApp1.ViewModel
 {
-    public class CustomerItemViewModel : ViewModelBase
+    public class CustomerItemViewModel : ValidationViewModelBase
     {
         private readonly Customer _model;
 
@@ -20,6 +20,15 @@ namespace WpfApp1.ViewModel
             {
                 _model.FirstName = value;
                 RaisePropertyChanged();
+
+                if (string.IsNullOrEmpty(_model.FirstName))
+                {
+                    AddError("FirstName is required");
+                }
+                else 
+                { 
+                    ClearErrors();
+                }
             }
         }
         public string? LastName
