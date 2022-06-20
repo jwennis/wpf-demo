@@ -9,12 +9,23 @@
                        BasedOn="{StaticResource TextBoxBaseStyle}">
         <Setter Property="Background" Value="#555555" />
         <Setter Property="Foreground" Value="#ffffff" />
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder />
+                        <TextBlock Foreground="Red" Text="This is not valid" Margin="5 0 0 0"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="Background" Value="#333333" />
             </Trigger>
             <Trigger Property="Validation.HasError" Value="True">
                 <Setter Property="Background" Value="Red" />
+                <Setter Property="Margin" Value="0 0 0 25" />
                 <Setter Property="ToolTip" 
                     Value="{Binding RelativeSource={RelativeSource Self},
                             Path=(Validation.Errors)[0].ErrorContent}" />
